@@ -383,17 +383,17 @@ class QueryResultResource(BaseResource):
     @staticmethod
     def make_csv_response(query_result):
         headers = {"Content-Type": "text/csv; charset=UTF-8"}
-        return make_response(serialize_query_result_to_dsv(query_result, ","), 200, headers)
+        return make_response(serialize_query_result_to_dsv('', ","), 200, headers)
 
     @staticmethod
     def make_tsv_response(query_result):
         headers = {"Content-Type": "text/tab-separated-values; charset=UTF-8"}
-        return make_response(serialize_query_result_to_dsv(query_result, "\t"), 200, headers)
+        return make_response(serialize_query_result_to_dsv('', "\t"), 200, headers)
 
     @staticmethod
     def make_excel_response(query_result):
         headers = {"Content-Type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}
-        return make_response(serialize_query_result_to_xlsx(query_result), 200, headers)
+        return make_response(serialize_query_result_to_xlsx(''), 200, headers)
 
 
 class JobResource(BaseResource):
